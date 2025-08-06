@@ -1,6 +1,13 @@
 {
+  "name": "eventify-back-end",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
   "dependencies": {
     "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-session": "^1.18.2",
     "method-override": "^3.0.0",

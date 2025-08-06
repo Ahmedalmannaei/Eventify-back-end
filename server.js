@@ -28,6 +28,7 @@ app.get("/", async (req, res) => {
 const commentController = require("./controllers/comment");
 const eventController = require("./controllers/event");
 const userController = require("./controllers/user");
+app.use("/events", eventController);
 app.listen(port, () => {
   console.log(`The app is listening on port ${port}!`);
 });
