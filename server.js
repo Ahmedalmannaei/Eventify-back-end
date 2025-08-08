@@ -7,6 +7,8 @@ const session = require("express-session");
 const cors = require("cors");
 const logger = require("morgan");
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const methodOverride = require("method-override");
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -46,6 +48,8 @@ const authRouter = require("./controllers/auth");
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
 
+const userController = require("./controllers/user");
+app.use("/events", eventController);
 app.listen(port, () => {
   console.log(`The app is listening on port ${port}!`);
 });
