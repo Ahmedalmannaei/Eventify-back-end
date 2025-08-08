@@ -48,7 +48,6 @@ const authRouter = require("./controllers/auth");
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
 
-const userController = require("./controllers/user");
 app.use("/events", eventController);
 app.listen(port, () => {
   console.log(`The app is listening on port ${port}!`);
