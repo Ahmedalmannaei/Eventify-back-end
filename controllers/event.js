@@ -32,7 +32,9 @@ router.get("/all", async (req, res) => {
     res.status(400).json({ err: err.message });
   }
 });
-// router.get("/details/:id", async (req, res) => {});
+router.get("/details/:id", verifyToken, async (req, res) => {
+  const event = await Event.findById(req.params.id).populate("owner");
+});
 router.put("/:id", verifyToken, async (req, res) => {
   const userId = req.user._id;
   const event = await Event.findById(req.params.id);
