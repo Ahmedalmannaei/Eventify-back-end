@@ -40,10 +40,12 @@ mongoose.connect(process.env.MONGODB_URI);
 app.get("/", async (req, res) => {
   res.render("index.ejs");
 });
-const commentController = require("./controllers/comment");
+
 const eventController = require("./controllers/event");
 const userRouter = require("./controllers/users");
 const authRouter = require("./controllers/auth");
+const commentsRouter = require("./controllers/comment");
+app.use("/comments", commentsRouter);
 
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
